@@ -802,7 +802,7 @@ MonoBehaviour:
   density: 20
   startDst: -1
   ColorA: {r: 1, g: 0.37931073, b: 0, a: 1}
-  ColorB: {r: 1, g: 0, b: 0.84233, a: 1}
+  ColorB: {r: 1, g: 0, b: 0.6698079, a: 1}
 --- !u!1 &2108368326
 GameObject:
   m_ObjectHideFlags: 0
