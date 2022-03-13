@@ -80,4 +80,5 @@ Zoom in to clearly see the effect.
     	<em>Figure 3: In playmode, when we come closer to the objects.</em>
 <!-- 	<figcaption align="center">Scene</figcaption> -->
 </p>
+
 Yeah I like pink a bit too much.
