@@ -212,8 +212,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 197983770}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 43.42}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 69.06}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -444,7 +444,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 593219480}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.19, y: 1.86, z: -10}
+  m_LocalPosition: {x: 0, y: 8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -463,9 +463,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9512d5b12a65445a637f1de069eb2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numScatterPoints: 50
+  numScatterPoints: 10
+  numDensityPoints: 10
   Sun: {fileID: 197983772}
   Planet: {fileID: 290080312}
-  atmosphereRadius: 12.5
+  atmosphereRadius: 15
   planetRadius: 7.5
-  densityFallOff: 10
+  densityFallOff: 30
+  rgbWavelengths: {x: 1.75, y: 1.325, z: 1.1}
+  scatteringStrength: 20

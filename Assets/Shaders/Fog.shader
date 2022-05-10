@@ -41,10 +41,16 @@ Shader "Hidden/Fog"
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 float3 worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;
+                o.viewVector = mul(unity_CameraToWorld, float4(mul(unity_CameraInvProjection, float4(v.uv.xy * 2 - 1, 0, -1)).xyz, 0));
+                o.uv = v.uv;
+                return o;
+                /*v2f o;
+                o.vertex = UnityObjectToClipPos(v.vertex);
+                float3 worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;
                 float3 worldViewVec = UnityWorldSpaceViewDir(worldPos);
                 o.viewVector = worldViewVec;
                 o.uv = v.uv;
-                return o;
+                return o;*/
             }
 
             uniform sampler2D _MainTex;
