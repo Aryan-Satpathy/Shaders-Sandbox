@@ -140,7 +140,7 @@ float3 Shade(inout Ray ray, RayHit hit)
         ray.energy *= hit.specular;
 
         // Return nothing
-        return saturate(dot(hit.normal, _DirectionalLight) * -1) * _DirectionalLightIntensity * hit.albedo;;
+        return saturate(dot(hit.normal, _DirectionalLight) * -1) * _DirectionalLightIntensity * hit.albedo;
     }
     else
     {

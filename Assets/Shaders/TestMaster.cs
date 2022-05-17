@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class TestMaster : MonoBehaviour
 {
-
+    [SerializeField]
     private Material test;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        Camera cam = GetComponent<Camera>();
+        cam.depthTextureMode = DepthTextureMode.Depth;
     }
 
     // Update is called once per frame
