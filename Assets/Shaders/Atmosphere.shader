@@ -165,7 +165,13 @@ Shader "Hidden/Atmosphere"
                 // return originalColor;
                 float nonlinDepth = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, i.uv);
 
-                float depth = LinearEyeDepth(nonlinDepth) * length(i.viewVector) / _cameraFarClip;
+                // return Linear01Depth(nonlinDepth);
+
+                float depth = Linear01Depth(tex2D(_CameraDepthTexture, i.uv)) * _cameraFarClip;
+                
+                // float depth = LinearEyeDepth(nonlinDepth); //  * length(i.viewVector) / 100;
+                // float depth = LinearEyeDepth(nonlinDepth) * length(i.viewVector) / 100;
+                // return length(i.viewVector) / 10;
                 // float depth = LinearEyeDepth(nonlinDepth);
 
                 float3 rayOrigin = _WorldSpaceCameraPos;

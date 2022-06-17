@@ -41,7 +41,7 @@ Shader "Unlit/TexCol"
             float4 frag(v2f i) : SV_Target
             {
                 if (i.r > 5.9) return float4(1, 1, 1, 1);
-                if (i.r < 4.9) return float4(0, 0, 1, 1);
+                if (i.r < 4.9) return float4(194.0 / 255, 189.0 / 255, 128.0 / 255, 1);
                 if (pow(i.nor, 5) < 0.8) return float4(0.4, 0.25, 0.25, 1);
                 if (1 - pow(i.nor, 10) < 0.01) return float4(1, 0.8, 0.6, 1);
                 return float4(0.55, 0.74, 0.31, 1);

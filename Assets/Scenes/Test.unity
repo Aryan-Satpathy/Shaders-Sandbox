@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 403682989}
   - component: {fileID: 403682992}
   - component: {fileID: 403682993}
+  - component: {fileID: 403682994}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -160,8 +161,8 @@ Camera:
   m_GameObject: {fileID: 403682988}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -175,7 +176,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 12
+  far clip plane: 100
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -216,7 +217,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 403682988}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c9512d5b12a65445a637f1de069eb2f, type: 3}
   m_Name: 
@@ -230,6 +231,7 @@ MonoBehaviour:
   densityFallOff: 30
   rgbWavelengths: {x: 1.75, y: 1.325, z: 1.1}
   scatteringStrength: 20
+  dmode: 1
 --- !u!114 &403682993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,6 +245,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   test: {fileID: 2100000, guid: e608a22be5ca96a4babbd553b586f82e, type: 2}
+--- !u!114 &403682994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403682988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c9512d5b12a65445a637f1de069eb2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numScatterPoints: 10
+  numDensityPoints: 10
+  Sun: {fileID: 664420695}
+  Planet: {fileID: 1900294754}
+  atmosphereRadius: 5
+  planetRadius: 0
+  densityFallOff: 1.9
+  rgbWavelengths: {x: 0, y: 1.14, z: 1.1}
+  scatteringStrength: 10000
+  dmode: 1
 --- !u!1 &664420693
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,7 +413,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!43 &1420084094
+--- !u!43 &1730273638
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -404,6 +428,18 @@ Mesh:
     Instance Instance Instance Instance Instance Instance Instance Instance Instance
     Instance Instance Instance Instance Instance Instance Instance Instance Instance
     Instance Instance Instance Instance Instance Instance Instance Instance Instance
+    Instance Instance Instance Instance Instance Instance Instance Instance Instance
+    Instance Instance Instance Instance Instance Instance Instance Instance Instance
+    Instance Instance Instance Instance Instance Instance Instance Instance Instance
+    Instance Instance Instance Instance Instance Instance Instance Instance Instance
+    Instance Instance Instance Instance Instance Instance Instance Instance Instance
+    Instance Instance Instance Instance Instance Instance Instance Instance Instance
+    Instance Instance Instance Instance Instance Instance Instance Instance Instance
+    Instance Instance Instance Instance Instance Instance Instance Instance Instance
+    Instance Instance Instance Instance Instance Instance Instance Instance Instance
+    Instance Instance Instance Instance Instance Instance Instance Instance Instance
+    Instance Instance Instance Instance Instance Instance Instance Instance Instance
+    Instance Instance Instance Instance Instance
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -661,7 +697,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1900294751}
-  m_Mesh: {fileID: 1420084094}
+  m_Mesh: {fileID: 1730273638}
 --- !u!1 &2025145209
 GameObject:
   m_ObjectHideFlags: 0
@@ -679,7 +715,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2025145210
 Transform:
   m_ObjectHideFlags: 0

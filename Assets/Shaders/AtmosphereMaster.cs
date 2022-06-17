@@ -26,9 +26,14 @@ public class AtmosphereMaster : MonoBehaviour
     [SerializeField]
     private float scatteringStrength;
 
+    [SerializeField]
+    private DepthTextureMode dmode;
+
     private void Awake()
     {
         _camera = GetComponent<Camera>();
+        _camera.depthTextureMode = dmode;
+        // _camera.depthTextureMode = DepthTextureMode.Depth;
     }
     
     // Start is called before the first frame update
@@ -40,7 +45,7 @@ public class AtmosphereMaster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        _camera.depthTextureMode = dmode;
     }
 
     private void OnRenderImage(RenderTexture source, RenderTexture destination)
@@ -53,6 +58,8 @@ public class AtmosphereMaster : MonoBehaviour
         float scatterB = scatteringStrength * Mathf.Pow(1 / rgbWavelengths.z, 4);
         if (atmosphere == null)
             atmosphere = new Material(Shader.Find("Hidden/Atmosphere"));
+            // atmosphere = new Material(Shader.Find("Hidden/atmos2"));
+        atmosphere.SetFloat("_cameraFarClip", _camera.farClipPlane);
         atmosphere.SetInt("_numScatterPoints", numScatterPoints);
         atmosphere.SetInt("_numDensityPoints", numDensityPoints);
         atmosphere.SetVector("_sunPos", Sun.position);
