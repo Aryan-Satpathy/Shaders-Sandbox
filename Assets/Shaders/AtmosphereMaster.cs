@@ -25,6 +25,10 @@ public class AtmosphereMaster : MonoBehaviour
     private Vector3 rgbWavelengths;
     [SerializeField]
     private float scatteringStrength;
+    [SerializeField]
+    private Vector3 colWater;
+    [SerializeField]
+    private float alphaMul = 10.0f;
 
     [SerializeField]
     private DepthTextureMode dmode;
@@ -70,6 +74,8 @@ public class AtmosphereMaster : MonoBehaviour
         atmosphere.SetFloat("scatterR", scatterR);
         atmosphere.SetFloat("scatterG", scatterG);
         atmosphere.SetFloat("scatterB", scatterB);
+        atmosphere.SetVector("waterColor", colWater);
+        atmosphere.SetFloat("multiplier", alphaMul);
         Graphics.Blit(source, destination, atmosphere);
         // Graphics.Blit(source, destination);
     }

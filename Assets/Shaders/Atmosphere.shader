@@ -70,6 +70,8 @@ Shader "Hidden/Atmosphere"
             float scatterR;
             float scatterG;
             float scatterB;
+            float3 waterColor;
+            float multiplier;
 
             float2 raySphere(float3 center, float radius, float3 origin, float3 dir)
             {
@@ -196,6 +198,22 @@ Shader "Hidden/Atmosphere"
 
                 // return hit.y / 2 / _atmosphereRadius;
                 // return dstThrAtm / 2 / _atmosphereRadius;
+                
+                // return dstToOcean / _cameraFarClip;
+                return 15 * (depth / _cameraFarClip - dstToOcean / _cameraFarClip);
+
+                if (depth > dstToOcean) // Ocean closer than terrain
+                {
+                    const float epsilon = 0.00001;
+                    // Ocean
+                    float dstThrOcean = depth - dstToOcean;
+                    // float alpha = exp(-dstThrOcean * multiplier);
+                    float alpha = 1 / dstThrOcean / dstToOcean / multiplier - epsilon;
+                    if (dstToOcean > _atmosphereRadius) alpha = 0;
+                    originalColor = float4(lerp(waterColor, originalColor, alpha), 1);
+                    return float4(0.5, 0.8, 1, 1);
+                    // if (dstToOcean > _atmosphereRadius) return originalColor;
+                }
 
                 if (dstThrAtm > 0)
                 {
